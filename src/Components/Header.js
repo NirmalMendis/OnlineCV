@@ -42,6 +42,7 @@ class Header extends Component {
       <div className="row banner">
       
          <div className="banner-text">
+            <div className ="row offset-1 pull-3 ten column">
             <h1 className="responsive-headline">{name}</h1>
             <h3>{description}.</h3>
             <hr />
@@ -49,6 +50,9 @@ class Header extends Component {
                <a href={project} className="button btn project-btn"><i className="fa fa-book"></i>Project</a>
                <a href={github} className="button btn github-btn"><i className="fa fa-github"></i>Github</a>
             </ul>
+            </div>
+            
+            
          </div>
       </div>
 
