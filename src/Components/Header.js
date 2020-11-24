@@ -7,7 +7,6 @@ class Header extends Component {
     if(this.props.data){
        var project = this.props.data.project;
        var github = this.props.data.github;
-       var backgroundImg= "images/"+this.props.data.backgroundC;
       var name = this.props.data.name;
       var description= this.props.data.description;
       var city= this.props.data.address.city;
@@ -17,12 +16,7 @@ class Header extends Component {
     }
 
     return (
-      <div  style={{
-         backgroundImage: 'url('+backgroundImg+')',
-         backgroundSize: "cover",
-         height: "auto",
-         width: "100%",
-         resize:"both"}}>
+      <div   className="container">
       <header id="home">
 
 

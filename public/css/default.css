@@ -81,6 +81,8 @@ code, kbd, pre, samp {
    font-size: 1em;
 }
 
+
+
 pre {
    white-space: pre;
    white-space: pre-wrap;
@@ -152,7 +154,14 @@ body {
    -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 	-webkit-text-size-adjust: 100%;
 }
-
+.container {
+   background-image: url(../images/wooden2.jpg);
+   background-size :cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   height: auto;
+   max-width: "100%";
+}
 /*  2. Typography
        Vertical rhythm with leading derived from 6
 --------------------------------------------------------------------- */
