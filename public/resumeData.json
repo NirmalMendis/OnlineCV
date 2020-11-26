@@ -11,9 +11,9 @@
     "project":"https://github.com/nordicgiant2/react-nice-resume",
     "address":{
       "street":"(Your Street)",
-      "city":"(Your City)",
-      "state":"(Your State)",
-      "zip": "(Your Zip/Postal Code)"
+      "city":"(Panadura)",
+      "state":"(Western)",
+      "zip": "(12500)"
     },
     "website": "http://www.timbakerdev.com",
     "resumedownload":"http://timbakerdev.com",
