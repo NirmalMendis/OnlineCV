@@ -1,9 +1,9 @@
 {
   "main": {
     "name":"Hi, I am Nirmal Mendis",
-    "description":"I am a web development engineer and I use react and python to develop pages. This project is a resume template that can be used as the project home page or resume page",
+    "description":"I am a computer science undergraduate at the University of Sri Jayewardenepura",
     "image":"profilepic.jpg",
-    "bio":"Use this bio section as your way of describing yourself and saying what you do, what technologies you like to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing in.",
+    "bio":"I am an ambitous, passionate and responsible individual able to work well both in a team environment as well as using own initiative while adapting to all challenging situations. I am seeking a position in the industry in which I can put into practice my knowledge and experience, ultimately benefiting the operations of the organisation that I work for.",
     "contactmessage":"Here is where you should write your message to readers to have them get in contact with you.",
     "email": "nirmal.gmw@gmail.com",
     "phone": "555-555-5555",
