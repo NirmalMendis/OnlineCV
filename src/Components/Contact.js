@@ -166,11 +166,10 @@ class Contact extends Component {
                         </div>
 
                         <div>
-                           <input type="submit" value="Submit" disabled  = {!this.state.allValid} className="submit" />
-                           <span id="image-loader">
-                              <img alt="" src="images/loader.gif" />
-                           </span>
+                      <button type="submit" form="contactForm" value="Submit" disabled={!this.state.allValid} >Submit</button>
+                  
                         </div>
+                       
                      </fieldset>
                   </form>
 
@@ -189,12 +188,13 @@ class Contact extends Component {
                         {name}<br />
                         {street} <br />
                         {city}, {state} {zip}<br />
-                        <span>{phone}</span>
+                        <span>{phone}</span><br />
+                        {email}
                      </p>
                   </div>
 
                   <div className="widget widget_tweets">
-                     <h4 className="widget-title">Latest Tweets</h4>
+                     {/* <h4 className="widget-title">Latest Tweets</h4>
                      <ul id="twitter">
                         <li>
                            <span>
@@ -212,7 +212,7 @@ class Contact extends Component {
                            </span>
                            <b><a href="#">3 Days Ago</a></b>
                         </li>
-                     </ul>
+                     </ul> */}
                   </div>
                </aside>
             </div>

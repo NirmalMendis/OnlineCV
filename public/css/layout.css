@@ -872,6 +872,26 @@ call-to-action .button {
 	border-radius: 0px;
    margin-left: 26%;
 }
+button  {
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	color:#fff;
+   background: #0D0D0D;
+	border: none;
+   cursor: pointer;
+   height: auto;
+   display: inline-block;
+	border-radius: 0px;
+   margin-left: 26%;
+}
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #e65a5a;
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
 #contact button.submit:hover {
 	color: #0D0D0D;
 	background: #fff;
