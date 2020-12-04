@@ -1,46 +1,108 @@
 import React, { Component } from 'react';
 import emailjs from 'emailjs-com';
 import apiKeys from '../apikeys';
-import{ init } from 'emailjs-com';
+import { init } from 'emailjs-com';
+
+const validEmailRegex = RegExp(
+   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+);
+const validateForm = errors => {
+   let valid = true;
+   Object.values(errors).forEach(val => val.length > 0 && (valid = false));
+   return valid;
+};
+
 
 class Contact extends Component {
+
    constructor(props) {
       super(props);
       this.state = {
-         from_name: '',
-         from_email: '',
-         from_sub: '',
-         message: ''
+         from_name: null,
+         from_email: null,
+         from_sub: null,
+         message: null,
+         allValid: false,
+         errors: {
+            from_name: '',
+            from_email: '',
+            message: ''
+         }
       };
 
       this.handleChange = this.handleChange.bind(this);
    }
 
+   fieldsTouched = () => {
+      let valid = true;
+      if (this.state.from_name == null || this.state.from_email == null || this.state.message == null) {
+         valid = false;
+      }
+      return valid;
+   }
+
    onSubmit = (e) => {
-      init(apiKeys.USER_ID)
+
       e.preventDefault()// Prevents default refresh by the browser
-      emailjs.send(apiKeys.SERVICE_ID,apiKeys.TEMPLATE_ID,{
-         from_name: this.state.from_name,
-         from_email: this.state.from_email,
-         message: this.state.message,
-         from_sub: this.state.from_sub,
+
+      if (validateForm(this.state.errors) && this.fieldsTouched()) {
+        
+         init(apiKeys.USER_ID)
+         emailjs.send(apiKeys.SERVICE_ID, apiKeys.TEMPLATE_ID, {
+            from_name: this.state.from_name,
+            from_email: this.state.from_email,
+            message: this.state.message,
+            from_sub: this.state.from_sub,
          })
-         
-         .then(result => {
-            alert('Message Sent, I\'ll get back to you shortly', result.text);
-         },
-            error => {
-               alert('An error occured, Please try again', error.text)
-            })
+
+            .then(result => {
+               alert('Message Sent, I\'ll get back to you shortly', result.text);
+            },
+               error => {
+                  alert('An error occured, Please try again', error.text)
+               })
+      } else {
+         console.log(this.state.errors.message);
+         console.log('Invalid Form');
+      }
+
    }
 
    handleChange(event) {
-      let nam = event.target.name;
-      let val = event.target.value;
-      this.setState({ [nam]: val });
+      event.preventDefault();
+      const { name, value } = event.target;
+      let errors = this.state.errors;
+
+      switch (name) {
+         case 'from_name':
+            errors.from_name =
+               value.length < 2
+                  ? 'Name must be more than 2 characters long!'
+                  : '';
+            break;
+         case 'from_email':
+            errors.from_email =
+               validEmailRegex.test(value) && value.length > 3
+                  ? ''
+                  : 'Email is not valid!';
+            break;
+         case 'message':
+            errors.message =
+               value.length < 1
+                  ? 'Please Enter a Messages!'
+                  : '';
+            break;
+         default:
+            break;
+      }
+
+      this.setState({ errors, [name]: value });
+      if (validateForm(this.state.errors) && this.fieldsTouched()) {
+         this.setState({allValid: true});
+      }
    }
    render() {
-
+      const { errors } = this.state;
       if (this.props.data) {
          var name = this.props.data.name;
          var street = this.props.data.address.street;
@@ -74,15 +136,19 @@ class Contact extends Component {
             <div className="row">
                <div className="eight columns">
 
-                  <form onSubmit={this.onSubmit} method="post" id="contactForm" name="contactForm">
+                  <form onSubmit={this.onSubmit} method="post" id="contactForm" name="contactForm" >
                      <fieldset>
 
                         <div>
+                        {errors.from_name.length > 0 &&
+                              <span style={{ color: "red" }} className="error" >{errors.from_name}</span>}
                            <label htmlFor="contactName">Name <span className="required">*</span></label>
                            <input type="text" defaultValue="" value={this.state.from_name} size="35" id="contactName" name="from_name" onChange={this.handleChange} />
-                        </div>
 
+                        </div>
                         <div>
+                        {errors.from_email.length > 0 &&
+                              <span style={{ color: "red" }} className="error" >{errors.from_email}</span>}
                            <label htmlFor="contactEmail">Email <span className="required">*</span></label>
                            <input type="text" defaultValue="" value={this.state.from_email} size="35" id="contactEmail" name="from_email" onChange={this.handleChange} />
                         </div>
@@ -93,12 +159,14 @@ class Contact extends Component {
                         </div>
 
                         <div>
+                        {errors.message.length > 0 &&
+                              <span style={{ color: "red" }} className="error" >{errors.message}</span>}
                            <label htmlFor="contactMessage">Message <span className="required">*</span></label>
-                           <textarea cols="50" rows="15" value={this.state.message}  id="contactMessage" name="message" onChange={this.handleChange}></textarea>
+                           <textarea cols="50" rows="15" value={this.state.message} id="contactMessage" name="message" onChange={this.handleChange}></textarea>
                         </div>
 
                         <div>
-                           <input type="submit" value="Submit" className="submit" />
+                           <input type="submit" value="Submit" disabled  = {!this.state.allValid} className="submit" />
                            <span id="image-loader">
                               <img alt="" src="images/loader.gif" />
                            </span>
