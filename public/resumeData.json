@@ -116,34 +116,28 @@
   "portfolio":{
     "projects": [
       {
-        "title":"Canadian Wanderlust",
-        "category":"My Travel Blog for my post-university travels",
-        "image":"canadian-wanderlust.jpg",
-        "url":"https://www.canadianwanderlust.com"
+        "title":"Smartphone Price Depreciation Prediction",
+        "category":"A machine learning research project to predict future price variations of a smartphone since it is released.",
+        "image":"phone.jpg",
+        "url":""
       },
       {
-        "title":"Fury Fighting Gear",
-        "category":"(offline now) A fighting gear company I started",
-        "image":"fury-fighting-gear.jpg",
+        "title":"Web Application for Smartphone Price Depreciation Prediction",
+        "category":"Developed a web application as an interface for the smartphone price depreciation machine learning project and deployed it on Heroku.",
+        "image":"phonedepnew.png",
+        "url":"http://phone-price-dep-predict.herokuapp.com/"
+      },
+      {
+        "title":"Resource Allocation System",
+        "category":"Developed a desktop application to manage Lecture Hall bookings. System sends an automated email when a booking is placed.",
+        "image":"hall.jpg",
+        "url":""
+      },
+      {
+        "title":"Hexapod",
+        "category":"An obstacle avoiding robot.",
+        "image":"hexa.jpg",
         "url":"http://www.timbakerdev.com"
-      },
-      {
-        "title":"Original Thai Food",
-        "category":"Website I built for a restaurant I like in Thailand",
-        "image":"original-thai-food.jpg",
-        "url":"http://www.timbakerdev.com/originalthaifood.github.io"
-      },
-      {
-        "title":"Resume Website",
-        "category":"A React based resume website template",
-        "image":"resume-website.jpg",
-        "url":"http://www.timbakerdev.com"
-      },
-      {
-        "title":"Smirkspace",
-        "category":"(MVP Only) A React and Meteor based chat University project.",
-        "image":"smirkspace.jpg",
-        "url":"http://www.smirkspace.com"
       }
     ]
   }
