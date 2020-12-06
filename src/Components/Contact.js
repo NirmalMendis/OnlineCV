@@ -3,9 +3,11 @@ import emailjs from 'emailjs-com';
 import apiKeys from '../apikeys';
 import { init } from 'emailjs-com';
 
+//Validate Email Regex
 const validEmailRegex = RegExp(
    /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 );
+//validate form on input change
 const validateForm = errors => {
    let valid = true;
    Object.values(errors).forEach(val => val.length > 0 && (valid = false));
@@ -33,6 +35,7 @@ class Contact extends Component {
       this.handleChange = this.handleChange.bind(this);
    }
 
+   //check if all fields have been touched
    fieldsTouched = () => {
       let valid = true;
       if (this.state.from_name == null || this.state.from_email == null || this.state.message == null) {
@@ -41,12 +44,14 @@ class Contact extends Component {
       return valid;
    }
 
+   //form submit handler
    onSubmit = (e) => {
 
       e.preventDefault()// Prevents default refresh by the browser
 
       if (validateForm(this.state.errors) && this.fieldsTouched()) {
         
+         //initialize emailjs and send mail
          init(apiKeys.USER_ID)
          emailjs.send(apiKeys.SERVICE_ID, apiKeys.TEMPLATE_ID, {
             from_name: this.state.from_name,
@@ -61,6 +66,7 @@ class Contact extends Component {
                error => {
                   alert('An error occured, Please try again', error.text)
                })
+      //   window.open('mailto:mailto:username@example.com?subject=Subject&body=message%20goes%20here');
       } else {
          console.log(this.state.errors.message);
          console.log('Invalid Form');
@@ -68,6 +74,7 @@ class Contact extends Component {
 
    }
 
+   //handle form inputs
    handleChange(event) {
       event.preventDefault();
       const { name, value } = event.target;
@@ -186,8 +193,7 @@ class Contact extends Component {
                      <h4>Address and Phone</h4>
                      <p className="address">
                         {name}<br />
-                        {street} <br />
-                        {city}, {state} {zip}<br />
+                        {city} <br /> {state} {zip}<br />
                         <span>{phone}</span><br />
                         {email}
                      </p>

@@ -3,7 +3,7 @@
     "title":"Hi, I am Nirmal Mendis",
     "name":"Nirmal Mendis",
     "description":"I am a computer science undergraduate at the University of Sri Jayewardenepura",
-    "image":"profilepic.jpg",
+    "image":"dp.jpg",
     "bio":"I am an ambitous, passionate and responsible individual able to work well both in a team environment as well as using own initiative while adapting to all challenging situations. I am seeking a position in the industry in which I can put into practice my knowledge and experience, ultimately benefiting the operations of the organisation that I work for.",
     "contactmessage":"Get In Touch",
     "email": "nirmal.gmw@gmail.com",
@@ -11,8 +11,7 @@
     "github":"https://github.com/NirmalMendis",
     "project":"https://github.com/nordicgiant2/react-nice-resume",
     "address":{
-      "street":"No 7, Mahanama Road, Walana",
-      "city":"(Panadura)",
+      "city":"Panadura",
       "state":"(Western)",
       "zip": "(12500)"
     },

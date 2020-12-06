@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
-import ParticlesBg  from "particles-bg";
 
 class Header extends Component {
   render() {
 
     if(this.props.data){
-       var project = this.props.data.project;
        var github = this.props.data.github;
       var name = this.props.data.title;
       var description= this.props.data.description;
-      var city= this.props.data.address.city;
-      var networks= this.props.data.social.map(function(network){
-        return <li key={network.name}><a href={network.url}><i className={network.className}></i></a></li>
-      })
     }
 
     return (
@@ -28,7 +22,7 @@ class Header extends Component {
             <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
             <li><a className="smoothscroll" href="#about">About</a></li>
 	         <li><a className="smoothscroll" href="#resume">Resume</a></li>
-            <li><a className="smoothscroll" href="#portfolio">Works</a></li>
+            <li><a className="smoothscroll" href="#portfolio">Projects</a></li>
             <li><a className="smoothscroll" href="#contact">Contact</a></li>
          </ul>
       </nav>
@@ -41,7 +35,7 @@ class Header extends Component {
             <h3>{description}.</h3>
             <hr />
             <ul className="social">
-               <a href={github} className="button btn github-btn"><i className="fa fa-github"></i>Github</a>
+               <a href={github}  target="_blank" className="button btn github-btn"><i className="fa fa-github"></i>Github</a>
             </ul>
             </div>
             
