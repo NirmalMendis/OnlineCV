@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
-
+//Validate Email Regex
+const validEmailRegex = RegExp(
+   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+);
 //validate form on input change
 const validateForm = errors => {
    let valid = true;
@@ -91,6 +94,7 @@ class Contact extends Component {
       const { errors } = this.state;
       if (this.props.data) {
          var name = this.props.data.name;
+         var street = this.props.data.address.street;
          var city = this.props.data.address.city;
          var state = this.props.data.address.state;
          var zip = this.props.data.address.zip;
