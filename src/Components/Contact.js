@@ -20,14 +20,10 @@ class Contact extends Component {
    constructor(props) {
       super(props);
       this.state = {
-         from_name: null,
-         from_email: null,
          from_sub: null,
          message: null,
          allValid: false,
          errors: {
-            from_name: '',
-            from_email: '',
             message: ''
          }
       };
@@ -38,7 +34,7 @@ class Contact extends Component {
    //check if all fields have been touched
    fieldsTouched = () => {
       let valid = true;
-      if (this.state.from_name == null || this.state.from_email == null || this.state.message == null) {
+      if (this.state.message == null) {
          valid = false;
       }
       return valid;
@@ -52,21 +48,22 @@ class Contact extends Component {
       if (validateForm(this.state.errors) && this.fieldsTouched()) {
         
          //initialize emailjs and send mail
-         init(apiKeys.USER_ID)
-         emailjs.send(apiKeys.SERVICE_ID, apiKeys.TEMPLATE_ID, {
-            from_name: this.state.from_name,
-            from_email: this.state.from_email,
-            message: this.state.message,
-            from_sub: this.state.from_sub,
-         })
+         // init(apiKeys.USER_ID)
+         // emailjs.send(apiKeys.SERVICE_ID, apiKeys.TEMPLATE_ID, {
+         //    from_name: this.state.from_name,
+         //    from_email: this.state.from_email,
+         //    message: this.state.message,
+         //    from_sub: this.state.from_sub,
+         // })
 
-            .then(result => {
-               alert('Message Sent, I\'ll get back to you shortly', result.text);
-            },
-               error => {
-                  alert('An error occured, Please try again', error.text)
-               })
-      //   window.open('mailto:mailto:username@example.com?subject=Subject&body=message%20goes%20here');
+         //    .then(result => {
+         //       alert('Message Sent, I\'ll get back to you shortly', result.text);
+         //    },
+         //       error => {
+         //          alert('An error occured, Please try again', error.text)
+         //       })
+         let mailtoString = "mailto:nirmal.gmw@gmail.com?subject=" + this.state.from_sub + "&body=" + this.state.message;
+         window.open(mailtoString);
       } else {
          console.log(this.state.errors.message);
          console.log('Invalid Form');
@@ -81,18 +78,6 @@ class Contact extends Component {
       let errors = this.state.errors;
 
       switch (name) {
-         case 'from_name':
-            errors.from_name =
-               value.length < 2
-                  ? 'Name must be more than 2 characters long!'
-                  : '';
-            break;
-         case 'from_email':
-            errors.from_email =
-               validEmailRegex.test(value) && value.length > 3
-                  ? ''
-                  : 'Email is not valid!';
-            break;
          case 'message':
             errors.message =
                value.length < 1
@@ -145,20 +130,6 @@ class Contact extends Component {
 
                   <form onSubmit={this.onSubmit} method="post" id="contactForm" name="contactForm" >
                      <fieldset>
-
-                        <div>
-                        {errors.from_name.length > 0 &&
-                              <span style={{ color: "red" }} className="error" >{errors.from_name}</span>}
-                           <label htmlFor="contactName">Name <span className="required">*</span></label>
-                           <input type="text" defaultValue="" value={this.state.from_name} size="35" id="contactName" name="from_name" onChange={this.handleChange} />
-
-                        </div>
-                        <div>
-                        {errors.from_email.length > 0 &&
-                              <span style={{ color: "red" }} className="error" >{errors.from_email}</span>}
-                           <label htmlFor="contactEmail">Email <span className="required">*</span></label>
-                           <input type="text" defaultValue="" value={this.state.from_email} size="35" id="contactEmail" name="from_email" onChange={this.handleChange} />
-                        </div>
 
                         <div>
                            <label htmlFor="contactSubject">Subject</label>
