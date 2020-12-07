@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import emailjs from 'emailjs-com';
-import apiKeys from '../apikeys';
-import { init } from 'emailjs-com';
 
 //Validate Email Regex
 const validEmailRegex = RegExp(
