@@ -14,7 +14,7 @@ class Portfolio extends Component {
               <Card.Img variant="top" alt={projects.title} src={projectImage} />
               <Card.Body>
                 <Card.Title>
-                  <h5><a style={{display: "table-cell"}} target="_blank" href={projects.url} >{projects.title}</a></h5>
+                  <h5><a  href={projects.url} >{projects.title}</a></h5>
                 </Card.Title>
                 <Card.Text>
                   <p>{projects.category}</p>
