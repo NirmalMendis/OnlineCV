@@ -4,19 +4,21 @@
     "name":"Nirmal Mendis",
     "description":"I am a computer science undergraduate at the University of Sri Jayewardenepura",
     "image":"dp.jpg",
-    "bio":"I am an ambitous, passionate and responsible individual able to work well both in a team environment as well as using own initiative while adapting to all challenging situations. I am seeking a position in the industry in which I can put into practice my knowledge and experience, ultimately benefiting the operations of the organisation that I work for.",
+    "bio":"I am an ambitious, passionate, and responsible individual able to work well both in a team environment as well as using my own initiative while adapting to all challenging situations. I am seeking a position in the industry in which I can put into practice my knowledge and experience, ultimately benefiting the operations of the organization that I work for.",
     "contactmessage":"Get In Touch",
     "email": "nirmal.gmw@gmail.com",
     "phone": "+94772311464",
     "github":"https://github.com/NirmalMendis",
     "project":"https://github.com/nordicgiant2/react-nice-resume",
     "address":{
+      "number":"No. 07",
+      "road":"Mahanama Road, Walana",
       "city":"Panadura",
       "state":"(Western)",
       "zip": "(12500)"
     },
     "website": "",
-    "resumedownload":"https://drive.google.com/file/d/1iJjVD23JAbc7bFJO9Ilsdb3aHffc2BwD/view?usp=sharing",
+    "resumedownload":"https://drive.google.com/file/d/1S10mukIzicdad3uMtebX8By4kmcIT4FY/view?usp=sharing",
     "social":[
       {
         "name":"facebook",
@@ -40,8 +42,8 @@
     "education":[
       {
         "school":"University of Sri Jayewardenepura",
-        "degree":"B.Sc. (Special) in Computer Science (Reading)",
-        "graduated":"2017-2021",
+        "degree":"B.Sc. (Honours) in Computer Science (Reading)",
+        "graduated":"2018-2021",
         "description":"Followed Applied Mathematics and Pure Mathematics in the first two years in addition to Computer Science."
       },
       {
@@ -74,31 +76,31 @@
     "skills":[
       {
         "name":"Java",
-        "level":"90%"
+        "level":"65%"
       },
       {
         "name":"C#",
-        "level":"80%"
+        "level":"55%"
       },
       {
         "name":"ReactJs",
-        "level":"70%"
+        "level":"50%"
       },
       {
         "name":"HTML5/CSS/JavaScript",
-        "level":"70%"
+        "level":"60%"
       },
       {
         "name":"C++",
-        "level":"80%"
+        "level":"60%"
       },
       {
         "name":"Python",
-        "level":"80%"
+        "level":"40%"
       },
       {
         "name":"PHP",
-        "level":"70%"
+        "level":"50%"
       }
     ]
   },
